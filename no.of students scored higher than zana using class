@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class student
+{
+   private:
+      int scores[5];
+   public:
+      void input()
+      {
+         cout<<"Enter 5 exam scores: ";
+         for(int i=0;i<5;i++)
+         {
+            cin>>scores[i];
+         }
+      }
+      int calculateTotalScore()
+      {
+         int total=0;
+         for(int i=0;i<5;i++)
+         {
+            total+=scores[i];
+         }
+         return total;
+      }
+};
+int main()
+{
+   int n;
+   cout<<"Enter the no.of students: ";
+   cin>>n;
+   student *students=new student[n];
+   for(int i=0;i<n;i++)
+   {
+      students[i].input();
+   }
+int zana_score=students[0].calculateTotalScore();
+int count=0;
+for(int i=1;i<n;i++)
+{
+   int total=students[i].calculateTotalScore();
+   if(total>zana_score)
+   {
+      count++;
+   }
+}
+cout<<"Total no.of students who scored higher than zana: "<<count<<endl;
+return 0;
+}
