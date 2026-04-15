@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+class Distance
+{
+   public:
+      int km,m;
+      void normalize()
+      {
+         if(m>=1000)
+         {
+            km=km+(m/1000);
+            m=m%1000;
+         }
+      }
+      Distance add(Distance other)
+      {
+         Distance temp;
+         temp.km=km+other.km;
+         temp.m=m+other.m;
+         temp.normalize();
+         return temp;
+      }
+      void display()
+      {
+         cout<<km<<"km "<<m<<"m"<<endl;
+      }
+};
+int main()
+{
+   Distance d1,d2,d3;
+   d1.km=6;
+   d1.m=11;
+   d2.km=27;
+   d2.m=5;
+   d3=d1.add(d2);
+   cout<<"Distance: ";
+   d3.display();
+   return 0;
+}
