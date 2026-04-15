@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class Complex
+{
+   public:
+      float real,imag;
+      Complex add(Complex other)
+      {
+        Complex temp;
+        temp.real = real + other.real;
+        temp.imag = imag + other.imag;
+        return temp;
+      }
+      Complex subtract(Complex other)
+      {
+        Complex temp;
+        temp.real = real - other.real;
+        temp.imag = imag - other.imag;
+        return temp;
+      }
+      void display()
+      {
+         if(imag>=0)
+         {
+            cout<<real << " + " << imag << "i" << endl;
+         }
+         else
+         {
+            cout<<real<<"-"<<-imag<<"i"<<endl;
+         }
+      }
+};
+int main()
+{
+   Complex c1,c2,c3,c4;
+   c1.real=5.4;
+   c1.imag=2.1;
+   c2.real=1.2;
+   c2.imag=3.5;
+   c3=c1.add(c2);
+   cout<<"complex addition: \n";
+   c3.display();
+   c4=c1.subtract(c2);
+   cout<<"complex subtraction \n";
+   c4.display();
+   return 0;
+}
