@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class employee
+{
+   private:
+      int basic,allowance;
+   public:
+      void input()
+      {
+         cin>>basic>>allowance;
+      }
+      int totalsalary()
+      {
+         return basic+allowance;
+      }
+      bool operator>(employee other)
+      {
+         return this->totalsalary()>other.totalsalary();
+      }
+};
+int main()
+{
+   int n;
+   cin>>n;
+   employee emp[100];
+   for(int i=0;i<n;i++)
+   {
+      emp[i].input();
+   }
+   int count=0;
+   for(int i=1;i<n;i++)
+   {
+      if(emp[i]>emp[0])
+      {
+         count++;
+      }
+   }
+   cout<<count<<endl;
+   return 0;
+}
