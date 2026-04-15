@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class Voter {
+public:
+    Voter(int age)
+    {
+        if(age<0)
+        {
+            throw "Invalid age";
+        }
+        if(age<18)
+        {
+            throw "Not eligible to vote";
+        }
+        cout <<"Eligible to vote!"<< endl;
+    }
+};
+int main()
+{
+   int a;
+   cout<<"Enter age: ";
+   cin>>a;
+   try
+   {
+      Voter v(a);
+   }
+   catch(const char *msg)
+   {
+      cout<<"Error: "<<msg<<endl;
+   }
+   return 0;
+}
